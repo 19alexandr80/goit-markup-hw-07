@@ -1,0 +1,84 @@
+.this::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: $accent-color;
+    border-radius: 2px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    transform: translateY(32px);
+  }
+  .topline-content {
+    display: flex;
+    align-items: center;
+  }
+  .topline-nav {
+    display: flex;
+    align-items: center;
+  }
+  .topline {
+    background-color: $white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid $border-color;
+    &-nav-ul,
+    &-contakts {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-left: 0px;
+        display: flex;
+    }
+  }
+  .logo {
+    .topline-nav & {
+        margin-right: 95px; 
+    }
+  }
+  .topline-contakts {
+    margin-left: auto;
+  }
+  .nav-lnk {
+    color: $title-text-color;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+        color: $accent-color;
+    }
+  }
+  .nv-l {
+    position: relative;
+    .topline-nav-ul & + & {
+        margin-left: 50px;
+    }
+  }
+  .contakt-lnk {
+    color: $text-color;
+    fill: currentColor;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    display: flex;
+    justify-content: center;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover,
+    &:focus {
+        color: $accent-color;
+    }
+  }
+  .env {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .cntkts-l {
+    &:not(:last-child) {
+        margin-right: 40px;
+    }
+  }

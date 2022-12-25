@@ -13,7 +13,7 @@
     opacity: 1;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-window-content {
+.modal-window {
     position: absolute;
     min-width: 528px;
     min-height: 281px;
@@ -23,31 +23,25 @@
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     background-color: $white;
-}
-.close-modal {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    top: 8px;
-    right: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-size: 18px;
-    padding: 6px 0;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover,
-    &:focus {
-        fill: $accent-color;
-        cursor: pointer;
+    &__close {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        top: 8px;
+        right: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-size: 18px;
+        padding: 6px 0;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover,
+        &:focus {
+            fill: $accent-color;
+            cursor: pointer;
+        }
     }
-}
-.form {
-    padding-top: 40px;
-    padding-left: 41px;
-    padding-right: 39px;
-    padding-bottom: 40px;
-    &_text {
+    &__text {
         margin-top: 0px;
         margin-bottom: 12px;
         font-weight: 700;
@@ -56,25 +50,36 @@
         text-align: center;
         letter-spacing: 0.03em;
     }
+    &__button {
+        @extend %button;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    &__form {
+        padding-top: 40px;
+        padding-left: 41px;
+        padding-right: 39px;
+        padding-bottom: 40px;
+        
+    }
 }
-.form_ul {
-    padding-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 20px;
-}
-.form_li {
+.user-input {
     display: flex;
     position: relative;
     flex-direction: column;
     font-weight: 400;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 1.17;
     letter-spacing: 0.01em;
     color: $text-color;
-    .form_ul & + & {
+    & + & {
         margin-top: 10px;
     }
-    & input {
+    &__title {
+        margin-bottom: 4px;
+    }
+    &__input {
         padding-top: 11px;
         padding-bottom: 11px;
         padding-left: 42px;
@@ -82,101 +87,90 @@
         border-radius: 4px;
         transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
         outline: none;
-        &:focus + .form-svg {
-            color: $accent-color;
-          }
         &:focus {
             border: 1px solid $accent-color; 
         }
     }
-    & span {
-        margin-bottom: 4px;
+    &__svg {
+        position: absolute;
+        left: 12px;
+        bottom: 11px;
+        height: 18px;
+        color: $title-text-color;
+        fill: currentColor;
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        .user-input__input:focus + & {
+            color: $accent-color;
+          }
     }
+    &__textarea {
+        height: 120px;
+        resize: none;
+        padding: 14px 16px;
+        border: 1px solid rgba(33, 33, 33, 0.2);
+        border-radius: 4px;
+        outline: none;
+        transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        &::placeholder {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 1.17;
+            letter-spacing: 0.01em;
+            color: rgba(117, 117, 117, 0.5);
+        }
+        &:focus {
+            border: 1px solid $accent-color;
+        }
+    }    
 }
-.form-svg {
-    position: absolute;
-    left: 12px;
-    bottom: 11px;
-    height: 18px;
-    color: $title-text-color;
-    fill: currentColor;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.commet_textarea {
-    height: 120px;
-    resize: none;
-    padding: 14px 16px;
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    border-radius: 4px;
-    outline: none;
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &::placeholder {
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.01em;
-        color: rgba(117, 117, 117, 0.5);
-    }
-    &:focus {
-        border: 1px solid $accent-color;
-    }
-}
-.consent {
+.user-consent {
     position: relative;
-    margin-top: 0px;
+    margin-top: 20px;
     margin-bottom: 30px;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.03em;
-    color: var(--text-color);
+    color: $text-color;
     padding-left: 34px;
     display: flex;
     align-items: center;
-    &_lab:hover {
+    &__label:hover {
         cursor: pointer;
     }
-    & a {
+    &__link {
         color: $accent-color;
     }
-}
-  .check-svg {
-    opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    position: absolute;
-    opacity: 0;
-    top: 50%;
-    left: 12px;
-    transform: translate(0%, -50%);
-    width: 16px;
-    height: 15px;
-    border-radius: 2px;
-    .consent_check:checked ~ & {
+    &__input {
+        appearance: none;
+        position: absolute;
+    }
+    &__check-off {
+        position: absolute;
+        fill : $title-text-color;
+        top: 50%;
+        left: 12px;
+        transform: translate(0%, -50%);
         opacity: 1;
+        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        .user-consent__input:checked + & {
+            opacity: 0;
+        }
     }
-}
-.check_off {
-    position: absolute;
-    fill : $title-text-color;
-    top: 50%;
-    left: 12px;
-    transform: translate(0%, -50%);
-    opacity: 1;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    .consent_check:checked + & {
+    &__check-svg {
         opacity: 0;
+        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        position: absolute;
+        opacity: 0;
+        top: 50%;
+        left: 12px;
+        transform: translate(0%, -50%);
+        width: 16px;
+        height: 15px;
+        border-radius: 2px;
+        .user-consent__input:checked ~ & {
+            opacity: 1;
+        }
     }
-  }
-.consent_check {
-    appearance: none;
-    position: absolute;
 }
-.submit_button {
-    @extend %button;
-    
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    
-  }
   

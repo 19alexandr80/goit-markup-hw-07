@@ -9,11 +9,7 @@
     bottom: 0px;
     transform: translateY(32px);
   }
-  .topline-content {
-    display: flex;
-    align-items: center;
-  }
-  .topline-nav {
+  .topline__navigator {
     display: flex;
     align-items: center;
   }
@@ -22,23 +18,24 @@
     padding-top: 25px;
     padding-bottom: 25px;
     border-bottom: 1px solid $border-color;
-    &-nav-ul,
-    &-contakts {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        padding-left: 0px;
-        display: flex;
-    }
+    display: flex;
+    align-items: center;
   }
   .logo {
-    .topline-nav & {
+    .topline__navigator & {
         margin-right: 95px; 
     }
   }
-  .topline-contakts {
-    margin-left: auto;
+  .navigator-site {
+    display: flex;
+    @extend %off-style;
   }
-  .nav-lnk {
+  .topline__contakts {
+    margin-left: auto;
+    display: flex;
+    @extend %off-style;
+  }
+  .navigator-site__page {
     color: $title-text-color;
     text-decoration: none;
     font-weight: 500;
@@ -51,13 +48,13 @@
         color: $accent-color;
     }
   }
-  .nv-l {
+  .navigator-site__list {
     position: relative;
-    .topline-nav-ul & + & {
+    .navigator-site & + & {
         margin-left: 50px;
     }
   }
-  .contakt-lnk {
+  .contakts-list__link {
     color: $text-color;
     fill: currentColor;
     text-decoration: none;
@@ -73,11 +70,11 @@
         color: $accent-color;
     }
   }
-  .env {
+  .contakts-list__icon {
     display: inline-block;
     margin-right: 10px;
   }
-  .cntkts-l {
+  .contakts-list {
     &:not(:last-child) {
         margin-right: 40px;
     }

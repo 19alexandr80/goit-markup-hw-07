@@ -1,37 +1,41 @@
 .peculiarities {
-    & p {
-        color: $text-color;
-        letter-spacing: 0.03em;
-        font-size: 14px;
-        line-height: 1.71;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    & h3 {
-        font-size: 14px;
-        line-height: 1.14;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        margin-top: 0px;
-        margin-bottom: 10px;
-    }
-  }
-  .peculiarities-ulist {
+  @extend %section;
+}
+.peculiarities-list {
     display: flex;
-  }
-  
-  .peculiarities-list {
-    flex-basis: calc((100% - 90px) / 4);
-    .peculiarities-ulist &:not(:last-child) {
-        margin-right: 30px;
+    @extend %off-style;
+    &__point {
+      flex-basis: calc((100% - 90px) / 4);
+      .peculiarities-list &:not(:last-child) {
+          margin-right: 30px;
+      }
     }
-  }
-  .peculiarities-svg {
-    background-color: $background-team;
+}
+.peculiarities-points {
+    &__svg {
+      background-color: $background-team;
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 100px;
     padding-right: 100px;
     margin-bottom: 30px;
     border-radius: 4px;
-  }
+    }
+    &__header {
+      font-size: 14px;
+      line-height: 1.14;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+    &__text {
+      color: $text-color;
+      letter-spacing: 0.03em;
+      font-size: 14px;
+      line-height: 1.71;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+}
+  

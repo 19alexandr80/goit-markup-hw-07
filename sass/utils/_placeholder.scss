@@ -18,3 +18,20 @@
         cursor: pointer;
     }
 }
+%off-style {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    list-style: none;
+}
+%section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
+%networks {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    padding: 12px;
+}
